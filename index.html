@@ -38,11 +38,12 @@
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
-  <!-- <script src="js/vconsole.min.js"></script> -->
-  <!-- <script>
+  <script src="js/vconsole.min.js"></script>
+  <script>
     var vConsole = new VConsole()
     console.log("Hello World!")
-  </script> -->
+    errorPlease()
+  </script>
 
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
@@ -144,18 +145,20 @@
 
     async function main() {
       // alert("LINE Developers x Skooldio")
+      liff.ready.then(() => {
+        document.getElementById("isLoggedIn").append(liff.isLoggedIn())
+        if (liff.isLoggedIn()) {
+          // alert("isLoggedIn")
+          getEnvironment()
+          getUserProfile()
+          getContext()
+          getFriendship()
+          createUniversalLink()
+        } else {
+          liff.login()
+        }
+      })
       await liff.init({ liffId: "2006621934-jeXQwD6K" })
-      document.getElementById("isLoggedIn").append(liff.isLoggedIn())
-      if (liff.isLoggedIn()) {
-        // alert("isLoggedIn")
-        getEnvironment()
-        getUserProfile()
-        getContext()
-        getFriendship()
-        createUniversalLink()
-      } else {
-        // liff.login()
-      }
     }
     main()
   </script>
