@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
   <title>My LIFF app</title>
   <link rel="stylesheet" href="css/style.css" media="all">
 </head>
+
 <body>
   <p id="os"><b>OS:</b> </p>
   <p id="language"><b>Language:</b> </p>
@@ -48,6 +50,12 @@
     }
 
     async function shareMsg() {
+      await liff.shareTargetPicker([
+        {
+          "type": "text",
+          "text": "This message was sent by ShareTargetPicker"
+        }
+      ])
     }
 
     function logOut() {
@@ -122,7 +130,7 @@
         document.getElementById("btnLogOut").style.display = "none"
       } else {
         document.getElementById("btnMsg").style.display = "none"
-        // document.getElementById("btnScanCode").style.display = "none"
+        document.getElementById("btnScanCode").style.display = "none"
         document.getElementById("btnClose").style.display = "none"
       }
     }
@@ -145,4 +153,5 @@
     main()
   </script>
 </body>
+
 </html>
