@@ -130,6 +130,7 @@
       await liff.init({ liffId: "2006621934-jeXQwD6K" })
       document.getElementById("isLoggedIn").append(liff.isLoggedIn())
       if (liff.isLoggedIn()) {
+        alert("isLoggedIn")
       getEnvironment()
       getUserProfile()
       getContext()
