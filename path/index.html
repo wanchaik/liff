@@ -35,6 +35,7 @@
     async function main() {
       await liff.init({ liffId: "2006621934-jeXQwD6K" })
       if (liff.isLoggedIn()) {
+        alert("isLoggedIn")
         getUserProfile()
       } else {
         liff.login({ redirectUri: "https://wanchaik.github.io/liff/path" })
